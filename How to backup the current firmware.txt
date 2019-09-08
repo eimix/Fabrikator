@@ -1,0 +1,9 @@
+To save the current operating firmware use AVRDUDE to pull it down from the Fabrikator. The command to use is as below
+
+< Path to the program file >avrdude -C< Path to the config file >avrdude.conf -v -v -patmega2560 -cwiring -P< the name of the USB connection > -b115200 -D -Uflash:r:< The name and location of the file to save>.hex:i 
+
+Here is an example of the syntax on my Mac computer
+
+/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -v -v -patmega2560 -cwiring -P/dev/cu.usbmodem142301 -b115200 -D -Uflash:r:./arduinoflash.ino.hex:i 
+
+To reflash the Fabrikator with this firmware simply replace the -Uflash:r: with -Uflash:w:
